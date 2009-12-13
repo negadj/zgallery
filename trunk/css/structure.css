@@ -1,0 +1,377 @@
+/*------------------------------------------------------------------------------
+ 1. Общий внешний вид
+------------------------------------------------------------------------------*/
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+div {
+	overflow: hidden;
+}
+
+header, #navCat, #sContent, #sAlbums, #sMainImage, #sImageList, footer {
+	overflow: hidden;
+	position: absolute;
+}
+
+header, #navCat, #sContent, #sImageList, footer {
+	left: 0;
+	right: 0;
+}
+
+/*------------------------------------------------------------------------------
+ 1.1. Цвета и фон
+------------------------------------------------------------------------------*/
+
+body {
+    background-color: #7c7c7c;
+    color: #6b3f2a;
+    font-family: "Comic Sans MS";
+    
+}
+
+.loadingdiv {
+	background-image: url("loader.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+header, #sImageList {
+	background-image: -moz-linear-gradient(top, bottom,from(#000000),to(#7c7c7c));
+	background-image: -webkit-gradient(linear, left top, left bottom,color-stop(0.00, #000000),color-stop(1.00, #7c7c7c));
+}
+
+/*------------------------------------------------------------------------------
+ 1.2. Шрифты
+------------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: 'Waltograph';
+	src: url('waltographUI.ttf');
+}
+
+@font-face {
+	font-family: 'Sharpie Marker';
+	src: url('title.ttf');
+}
+
+/*------------------------------------------------------------------------------
+ 2. Заголовок и главное навигационное меню
+------------------------------------------------------------------------------*/
+
+header {
+    height: 98px;
+	left: 0;
+	line-height: 98px;
+    text-align: left;
+    top: 0;
+	width: 100%;
+}
+
+header img {
+	float: left;
+	height: 80px;
+	position: relative;
+	width: 80px;
+}
+
+header span {
+	color: #607992;
+	font-family: Waltograph, "Comic Sans MS";
+	font-size: 35px;
+	text-shadow: 0 2px 0 #00a;  
+}
+
+#navCat {
+    height: 48px;
+	line-height: 48px;
+	right: 0;
+    text-align: right;
+	top: 50px;
+}
+
+#navUL {
+	position: absolute;
+	right: 0;
+}
+
+.navLI {
+	color: #000;
+	float: left;
+	font-family: "Sharpie Marker", "Comic Sans MS";
+	padding: 0 15px 0 15px;
+	position: relative;
+}
+
+/*------------------------------------------------------------------------------
+3. Основные секции
+------------------------------------------------------------------------------*/
+
+#sContent {
+    bottom: 30px;
+    top: 100px;
+}
+
+/*------------------------------------------------------------------------------
+ 3.1. Левая секция
+------------------------------------------------------------------------------*/
+
+#sAlbums {
+    bottom: 150px;
+    left: 0;
+    top: 0;
+    width: 298px;
+}
+
+#albUp {
+	height: 28px;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	width: 100%;
+}
+
+#albList {
+	bottom: 30px;
+	overflow: hidden;
+	position: absolute;
+	text-align: center;
+	top: 30px;
+	width: 100%;
+}
+
+#albDown {
+	bottom: 0;
+	height: 28px;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+}
+
+#albUp img, #albDown img, #imgLeft img, #imgRight img {
+	height: 25px;
+	opacity: 0.3;
+	width: 25px;
+}
+
+#albUp img:hover, #albDown img:hover, #imgLeft img:hover, #imgRight img:hover, #toLeft img:hover, #toRight img:hover {
+	opacity: 1.0;
+}
+
+#albUL {
+	height: 10000px;
+	left: 0;
+	padding-top: 10px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+.albLI {
+	float: left;
+	height: 100px;
+	line-height: 100px;
+	padding: 5px 0;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+.albLI img {
+	max-height: 100px;
+	opacity: 0.6;
+	max-width: 100px;
+}
+
+.albLI img:hover {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	
+	margin-top: -5px;
+	max-height: 110px;
+	opacity: 1;
+	max-width: 110px;
+}
+
+.albLI img.active {
+	box-shadow: 5px 5px 2px #333;
+	-moz-box-shadow: 5px 5px 2px #333;
+	-webkit-box-shadow: 5px 5px 2px #333;
+	
+	opacity: 1;
+}
+
+.albTitle {
+	color: #800;
+	font-family: "Sharpie Marker", "Comic Sans MS";
+	font-size: 15px;
+	height: 30px;
+	left: 190px;
+	line-height: 15px;
+	position: absolute;
+	text-align: left;
+	top: 80px;
+	vertical-align: baseline;
+	width: 90px;
+	word-wrap:break-word;
+
+}
+
+/*------------------------------------------------------------------------------
+ 3.2. Центральная секция
+------------------------------------------------------------------------------*/
+
+#sMainImage {
+    bottom: 150px;
+    left: 300px;
+    right: 0;
+	top: 0;
+}
+
+#toLeft img, #toRight img {
+	height: 45px;
+	margin-top: -22px;
+	opacity: 0.3;
+	position: absolute;
+	top: 50%;
+	width: 45px;
+}
+
+#toLeft {
+	bottom: 0;
+	left: 0; 
+	position: absolute;
+	top: 0;
+	width: 50px;
+}
+
+#imgDiv {	
+	bottom: 0; 
+	left: 50px;
+	padding: 10px;
+	position: absolute;
+	right: 250px;
+	text-align: center;
+	top: 0;
+}
+
+#toRight {
+	bottom: 0; 
+	position: absolute;
+	right: 200px;
+	top: 0;
+	width: 50px;
+}
+
+#imgInfo {
+	bottom: 0; 
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 200px;
+}
+
+#imgMain {
+	max-height: 100%;
+	max-width: 100%;
+}
+
+/*------------------------------------------------------------------------------
+ 3.3. Нижняя секция
+------------------------------------------------------------------------------*/
+
+#sImageList {
+    bottom: 0;
+    height: 120px;
+	line-height: 120px;
+}
+
+#imgLeft, #imgRight {
+	height: 100%;
+	position: absolute;
+	width: 200px;
+}
+
+#imgLeft {
+	left: 0;
+	text-align: right;
+}
+
+#imgRight {
+	right: 0;
+	text-align: left;
+}
+
+#imgLeft img, #imgRight img {
+	margin-top: -12px;
+	position: absolute;
+	top: 50%;
+}
+
+#imgLeft img, #imgRight img {
+	right: 10px;
+}
+
+#imgRight img {
+	left: 10px;
+}
+
+#imgList {
+	height: 100%;
+	left: 200px;
+	overflow: hidden;
+	position: absolute;
+	right: 200px;
+}
+
+#imgUL {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	width: 10000px;
+}
+
+.imgLI {	
+	float: left;
+	height: 100%;
+	/*padding: 0 10px;*/
+	position: relative;
+	text-align: center;	
+	width: 120px;
+}
+
+.imgLI img {
+	max-height: 100px;
+	max-width: 100px;
+	opacity: 0.5;
+	margin: 10px 10px;
+}
+
+.imgLI img:hover {
+	margin-left: 5px;
+	margin-top: 5px;
+	max-height: 110px;
+	max-width: 110px;
+	opacity: 1;
+}
+
+.imgLI img.active {
+	box-shadow: 5px 5px 2px #888;
+	-moz-box-shadow: 5px 5px 2px #888;
+	-webkit-box-shadow: 5px 5px 2px #888;
+	
+	opacity: 1;
+}
+/*------------------------------------------------------------------------------
+ 4. Футер
+------------------------------------------------------------------------------*/
+
+footer {
+	border-top: #666 1px solid;
+    bottom: 0;
+    height: 28px;
+	line-height: 28px;
+    text-align: center;
+}
