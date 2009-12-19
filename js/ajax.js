@@ -21,6 +21,11 @@ $(document).ready(function(){
     $('header img').click(getCategories);
 });
 
+$(document).resize(function(){
+	var h = parseInt($('#imgDiv').height(), 10);
+	$('#imgDiv').css('line-height', h + 'px');
+});
+
 function getCategories(){
     $.getJSON(ajaxPath, {
         object: 'categories'
