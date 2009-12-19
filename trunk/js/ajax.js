@@ -87,7 +87,7 @@ function fillAlbums(jsonData){
 			$albUL.children().each(function(){
 				var jsonData = $(this).data('json');
 				$(this).children('img').removeClass('active').attr('src', jsonData.image.thumb_bw_src);
-			})
+			});
 			$(this).children('img').addClass('active').attr('src', jsonData.image.thumb_src);
         });
         $("#albUL").append(myLi);
@@ -125,7 +125,7 @@ function fillImages(jsonData){
 			$imgUL.children().each(function(){
 				var jsonData = $(this).data('json');
 				$(this).children('img').removeClass('active').attr('src', jsonData.thumb_bw_src);
-			})
+			});
 			$(this).children('img').addClass('active').attr('src', jsonData.thumb_src);
         });
 		
@@ -138,28 +138,32 @@ function fillImages(jsonData){
 
 $.fn.toggleImage = function(newSrc, duration) {
 	var d = duration ? duration : 500;
+	var $t = $(this);
 	
-	$(this).parent().addClass('loadingdiv');
-	$(this).fadeOut(d, function(){
-		$(this).attr('src', newSrc);
-		$(this).load(function(){
-			$(this).parent().removeClass('loadingdiv');
-			$(this).fadeIn(d);
+	if (!$t.hasClass('active')) {
+		$t.parent().addClass('loadingdiv');
+		$t.fadeOut(d, function(){
+			$t.attr('src', newSrc);
+			$t.load(function(){
+				$t.parent().removeClass('loadingdiv');
+				$t.fadeIn(d);
+			});
 		});
-	});
-}
+	}
+	return $t;
+};
 
 function ajaxError(XMLHttpRequest, textStatus, errorThrown){
     //console.info(XMLHttpRequest);
     //console.info(textStatus);
-    //console.info(errorThrown);
-    //$('header img').attr('src', 'icons/w_main.png');
+    console.info(errorThrown);
+    $('header img').attr('src', 'ico/w_main.png');
 }
 
 function ajaxComplete(XMLHttpRequest, textStatus){
-    //$('header img').attr('src', 'icons/w_main.png');
+    $('header img').attr('src', 'ico/w_main.png');
 }
 
 function ajaxSend(XMLHttpRequest){
-    //$('header img').attr('src', 'css/w_loader.gif');
+    $('header img').attr('src', 'css/w_loader.gif');
 }
