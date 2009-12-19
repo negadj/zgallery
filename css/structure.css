@@ -66,17 +66,19 @@ header {
 	line-height: 98px;
     text-align: left;
     top: 0;
+	vertical-align: middle;
 	width: 100%;
 }
 
 header img {
 	float: left;
-	height: 80px;
+	max-height: 80px;
+	opacity: 0.6;
 	position: relative;
-	width: 80px;
+	max-width: 80px;
 }
 
-header span {
+header h1 {
 	color: #000;
 	font-family: Waltograph, "Comic Sans MS";
 	font-size: 35px;
