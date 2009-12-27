@@ -88,6 +88,9 @@ function refreshInterface() {
 	var h = $imgDiv.height();
 	$imgDiv.css('line-height', h + 'px');
 	
+	h = $('body').height() - 40;
+	$('#topImgDiv').css('line-height', h + 'px');
+	
 	var $albList = $('#albList');
 	$albList.height('100%');
 	h = $albList.height() - 60;
