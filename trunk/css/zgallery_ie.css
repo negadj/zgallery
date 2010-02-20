@@ -1,0 +1,44 @@
+header {
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#202020',EndColorStr='#090909');
+}
+
+#sImageList {
+	filter:progid:DXImageTransform.Microsoft.Gradient(GradientType=0,StartColorStr='#090909',EndColorStr='#202020');
+}
+
+#logo {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+
+#albUL li, #imgUL li {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=60);
+}
+
+#topLeft img, #topRight img {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=50);
+}
+
+#albUp img, #albDown img, 
+#imgLeft img, #imgRight img, 
+#toLeft img, #toRight img {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=30);
+}
+
+#albUL li:hover, #imgUL li:hover, 
+#albUL li.active, #imgUL li.active,
+#topLeft img:hover, #topRight img:hover,
+#albUp img:hover, #albDown img:hover, 
+#imgLeft img:hover, #imgRight img:hover, 
+#toLeft img:hover, #toRight img:hover {
+	filter:progid:DXImageTransform.Microsoft.Alpha(opacity=100);
+}
+
+#imgMain, #albUL img.active, #imgUL img.active {
+	border: #808080 1px solid;
+}
+
+#imgUL img, #albUL img {
+	width: auto!important;
+	height: auto!important;
+}
+

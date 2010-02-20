@@ -1,0 +1,531 @@
+/*------------------------------------------------------------------------------
+ 1. Общий внешний вид
+------------------------------------------------------------------------------*/
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+div {
+	overflow: hidden;
+}
+
+header, #navCat, #sContent, #sAlbums, #sMainImage, #sImageList, footer {
+	overflow: hidden;
+	position: absolute;
+}
+
+header, #navCat, #sContent, #sImageList, footer {
+	left: 0;
+	right: 0;
+}
+
+/*------------------------------------------------------------------------------
+ 1.1. Цвета и фон
+------------------------------------------------------------------------------*/
+
+body {
+    background-color: #090909;
+    color: #6b3f2a;
+    font-family: "Comic Sans MS";
+    
+}
+
+div.loadingdiv {
+	background-image: url("w_loader.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+div.loadingdiv_ {
+	background-image: url("w_loader_.gif");
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+header {
+	background-image: -moz-linear-gradient(0deg, #202020, #090909);
+	background-image: -webkit-gradient(linear, left top, right bottom,color-stop(0.00, #202020),color-stop(1.00, #090909));
+}
+
+#sImageList {
+	background-image: -moz-linear-gradient(-90deg, #090909, #202020);
+	background-image: -webkit-gradient(linear, left top, left bottom,color-stop(0.00, #090909),color-stop(1.00, #202020));
+}
+
+footer {
+	background-color: #202020;
+}
+
+/*------------------------------------------------------------------------------
+ 1.2. Шрифты
+------------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: 'Waltograph';
+	src: url('fonts/waltographUI.eot');
+	src: local('Waltograph UI Bold'), 
+		 local('WaltographUI-Bold'), 
+		 url('fonts/waltographUI.woff') format('woff'),
+		 url('fonts/waltographUI.ttf') format('truetype'),
+		 url('fonts/waltographUI.svg#WaltographUI-Bold') format('svg');
+}
+
+@font-face {
+	font-family: 'Sharpie Marker';
+	src: url('fonts/sharpie.eot');
+	src: local("Sam's Sharpie Marker Medium"), 
+		 local("Sam'sSharpieMarker"), 
+		 url('fonts/sharpie.woff') format('woff'), 
+		 url('fonts/sharpie.ttf') format('truetype'), 
+		 url("fonts/sharpie.svg#Sam'sSharpieMarker") format('svg');
+}
+
+/*------------------------------------------------------------------------------
+ 2. Заголовок и главное навигационное меню
+------------------------------------------------------------------------------*/
+
+header {
+	border-bottom: #202020 1px solid;
+    height: 99px;
+	left: 0;
+	line-height: 99px;
+    text-align: left;
+    top: 0;
+	width: 100%;
+}
+
+#logo {
+	cursor: pointer;
+	float: left;
+	max-height: 88px;
+	max-width: 88px;
+	opacity: 0.6;
+	padding: 5px 20px;
+}
+
+header h1 {
+	color: #999;
+	font-family: "Waltograph", "Comic Sans MS", "Arial";
+	font-size: 35px;
+	text-shadow: 2px 2px 4px #666;
+	top: 0;
+}
+
+#navCat {
+    height: 48px;
+	line-height: 48px;
+	right: 0;
+    text-align: right;
+	top: 50px;
+}
+
+#navUL {
+	position: absolute;
+	right: 0;
+}
+
+
+#status {
+	position: absolute;
+	right: 10px;
+	top: 10px;
+}
+
+#navUL li.navLI {
+	color: #6b3f2a;
+	cursor: pointer;
+	float: left;
+	font-family: "Sharpie Marker", "Comic Sans MS", "Arial";
+	font-size: 20px;
+	padding: 0 15px;
+	position: relative;
+}
+
+#navUL li.active {
+	color: #a00;
+}
+
+/*------------------------------------------------------------------------------
+3. Основные секции
+------------------------------------------------------------------------------*/
+
+#sContent {
+    bottom: 30px;
+    top: 100px;
+}
+
+#albUp img, #albDown img, 
+#imgLeft img, #imgRight img,
+#toLeft img, #toRight img {
+	height: 25px;
+	opacity: 0.3;
+	width: 25px;
+}
+
+#albUp img:hover, #albDown img:hover, 
+#imgLeft img:hover, #imgRight img:hover, 
+#toLeft img:hover, #toRight img:hover {
+	opacity: 1.0;
+}
+
+/*------------------------------------------------------------------------------
+ 3.1. Левая секция
+------------------------------------------------------------------------------*/
+
+#sAlbums {
+    bottom: 120px;
+    left: 0;
+    top: 0;
+    width: 298px;
+}
+
+#albUp {
+	height: 28px;
+	line-height: 28px;
+	position: absolute;
+	top: 0;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+
+#albList {
+	height: 100%;
+	margin-top: -165px;
+	overflow: hidden;
+	position: absolute;
+	text-align: center;
+	top: 50%;
+	width: 100%;
+}
+
+#albDown {
+	bottom: 0;
+	height: 28px;
+	line-height: 28px;
+	position: absolute;
+	text-align: center;
+	vertical-align: middle;
+	width: 100%;
+}
+
+#albUp img, #albDown img {
+	cursor: pointer;
+	height: 15px;
+	position: relative;
+	width: 15px;
+}
+
+#albUL {
+	height: 10000px;
+	left: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+#albUL li {
+	cursor: pointer;
+	float: left;
+	height: 100px;
+	line-height: 100px;
+	padding: 5px 0;
+	position: relative;
+	text-align: center;
+	width: 100%;
+}
+
+#albUL img {
+	max-height: 100px;
+	max-width: 100px;
+	opacity: 0.6;
+	vertical-align: middle;
+}
+
+#albUL img:hover {
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	
+	margin: -5px -5px;
+	max-height: 110px;
+	opacity: 1;
+	max-width: 110px;
+}
+
+#albUL img.active {
+	box-shadow: 0px 0px 10px #ccc;
+	-moz-box-shadow: 0px 0px 10px #ccc;
+	-webkit-box-shadow: 0px 0px 10px #ccc;
+	
+	opacity: 1;
+}
+
+#albUL div.albTitle {
+	color: #eee;
+	font-family: "Sharpie Marker", "Comic Sans MS", "Arial";
+	font-size: 15px;
+	height: 30px;
+	left: 190px;
+	line-height: 15px;
+	position: absolute;
+	text-align: left;
+	top: 80px;
+	vertical-align: baseline;
+	width: 90px;
+	word-wrap: break-word;
+}
+
+#albUL li.active div.albTitle {
+	color: #a00;
+}
+
+/*------------------------------------------------------------------------------
+ 3.2. Центральная секция
+------------------------------------------------------------------------------*/
+
+#sMainImage {
+    bottom: 120px;
+    left: 300px;
+    right: 0;
+	top: 0;
+}
+
+#toLeft, #toRight {
+	bottom: 0;
+	position: absolute;
+	text-align: center;
+	top: 0;
+	width: 50px;
+}
+
+#toLeft { left: 0; }
+#toRight { right: 300px; }
+
+#toLeft img, #toRight img {
+	cursor: pointer;
+	height: 20px;
+	margin-top: -10px;
+	position: relative;
+	top: 50%;
+	width: 20px;
+}
+
+#imgDiv {	
+	bottom: 0; 
+	left: 50px;
+	padding: 10px;
+	position: absolute;
+	right: 350px;
+	text-align: center;
+	top: 0;
+}
+
+#imgInfo {		
+	bottom: 20px; 
+	position: absolute;
+	right: 0;
+	text-align:center;
+	top: 50px;
+	width: 300px;
+}
+
+#imgMain {
+	box-shadow: 0px 0px 10px #eee;
+	-moz-box-shadow: 0px 0px 10px #eee;
+	-webkit-box-shadow: 0px 0px 10px #eee;
+
+	cursor: pointer;
+	max-height: 100%;
+	max-width: 100%;
+	vertical-align: middle;
+}
+
+/*------------------------------------------------------------------------------
+ 3.3. Нижняя секция
+------------------------------------------------------------------------------*/
+
+#sImageList {
+    bottom: 0;
+    height: 120px;
+	line-height: 120px;
+}
+
+#imgLeft, #imgRight {
+	height: 100%;
+	line-height: 120px;
+	position: absolute;
+	vertical-align: middle;
+	width: 200px;
+}
+
+#imgLeft {
+	margin-right: 420px;
+	right: 50%;
+	text-align: right;
+}
+
+#imgRight {
+	left: 50%;
+	margin-left: 420px;
+	text-align: left;
+}
+
+#imgLeft img, #imgRight img {
+	cursor: pointer;
+	height: 15px;
+	position: relative;
+	width: 15px;
+}
+
+#imgLeft img {
+	right: 10px;
+}
+
+#imgRight img {
+	left: 10px;
+}
+
+#imgList {
+	height: 100%;
+	left: 50%;
+	margin-left: -420px;
+	overflow: hidden;
+	position: absolute;
+	width: 840px;
+}
+
+#imgUL {
+	height: 100%;
+	left: 0;
+	position: absolute;
+	width: 10000px;
+}
+
+#imgUL li {	
+	cursor: pointer;
+	float: left;
+	height: 100%;
+	line-height: 120px;
+	position: relative;
+	text-align: center;
+	width: 120px;
+}
+
+#imgUL img {
+	margin: 10px 10px;
+	max-height: 100px;
+	max-width: 100px;
+	opacity: 0.5;
+	vertical-align: middle;
+}
+
+#imgUL img:hover {
+	margin: 5px 5px;
+	max-height: 110px;
+	max-width: 110px;
+	opacity: 1;
+}
+
+#imgUL img.active {
+	box-shadow: 0px 0px 10px #ccc;
+	-moz-box-shadow: 0px 0px 10px #ccc;
+	-webkit-box-shadow: 0px 0px 10px #ccc;
+	
+	opacity: 1;
+}
+/*------------------------------------------------------------------------------
+ 4. Футер
+------------------------------------------------------------------------------*/
+
+footer {
+	border-top: #202020 1px solid;
+    bottom: 0;
+    height: 29px;
+	line-height: 29px;
+    text-align: center;
+}
+
+/*------------------------------------------------------------------------------
+5. Всплывающее окно
+------------------------------------------------------------------------------*/
+
+#topDiv {
+	background-color: #000000;
+	display: none;
+	height: 100%;
+	position: absolute;
+	width: 100%;
+	z-index: 1000;
+}
+
+#topImgDiv {
+	bottom: 20px;
+	left: 50%;
+	margin-left: -35%;
+	overflow:visible;
+	position: absolute;
+	text-align: center;
+	top: 20px;
+	width: 70%;
+}
+
+#topLeft, #topRight {
+	bottom: 20px;
+	overflow:visible;
+	position: absolute;
+	top: 20px;
+	width: 100px;
+}
+
+#topLeft {
+	margin-right: 40%;
+	right: 50%;
+}
+
+#topRight {
+	margin-left: 40%;
+	left: 50%;
+}
+
+#topLeft img, #topRight img {
+	border-radius: 7px;
+	-moz-border-radius: 7px; 
+	-webkit-border-radius: 7px;
+
+	box-shadow: 0px 0px 10px #ccc;
+	-moz-box-shadow: 0px 0px 10px #ccc;
+	-webkit-box-shadow: 0px 0px 10px #ccc;
+	
+	cursor: pointer;
+	margin-top: -50px;
+	max-height: 100px;
+	max-width: 100px;
+	opacity: 0.5;
+	position: absolute;
+	top: 50%;
+}
+
+#topLeft img {
+	right: 5px;
+}
+
+#topRight img {
+	left: 5px;
+}
+
+#topLeft img:hover, #topRight img:hover {
+	opacity: 1;
+}
+
+#imgTop {
+	box-shadow: 0px 0px 10px #eee;
+	-moz-box-shadow: 0px 0px 10px #eee;
+	-webkit-box-shadow: 0px 0px 10px #eee;
+	
+	cursor: pointer;
+	max-height: 100%;
+	max-width: 100%;
+	vertical-align: middle;
+}

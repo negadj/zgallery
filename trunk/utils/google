@@ -1,0 +1,2 @@
+#!/usr/local/bin/bash
+./google.py http://wicked-child.ru/js/zgallery.js > ../js/zgallery_compressed.js

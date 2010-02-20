@@ -1,0 +1,3 @@
+#!/bin/bash
+../docs/NaturalDocs/NaturalDocs -i ../js/ -o FramedHtml ../docs/js/ -p ../docs/config/ -img ../ico
+

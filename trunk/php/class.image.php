@@ -126,5 +126,13 @@
 			}
 		}
 	}
+	
+	function returnError($errorMessage) {
+		echo '{"result": {"error":"' . $errorMessage . '"}}';
+	}
+	
+	function returnSQLError($query, $sqlerror) {
+		echo '{"result": {"error":"Cannot execute query ' . $query . '. MySQL error: ' . $sqlerror . '."}}';
+	}
 
 ?>
