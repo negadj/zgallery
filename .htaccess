@@ -4,6 +4,17 @@ php_value memory_limit 50M
 
 ErrorDocument 404 /
 
+<Files .htpasswd>
+    deny from all
+</Files>
+
+<Files upload.html php/set.php>
+    AuthName "Access restricted"
+    AuthType Basic
+    AuthUserFile .htpasswd
+    require valid-user
+</Files>
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType application/javascript "access plus 1 month"
