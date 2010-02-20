@@ -10,7 +10,7 @@
  * Constant: USE_CUFON
  * Wether to use Cufon for rendering fonts or not
  */
-var AJAX_PATH = 'php/upload.php';
+var AJAX_PATH = 'php/get.php';
 var USE_CUFON = true;
 
 

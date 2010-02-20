@@ -2,7 +2,7 @@
  * @author zoldatoff
  */
 
-var ajaxPath = 'php/upload.php';
+var ajaxPathSet = 'php/set.php';
 
 $.fn.center = function() {
 	var t = $(this);
@@ -47,21 +47,21 @@ $.fn.make_droppable = function(scope) {
 				
 				switch (scope) {
 					case 'images2albums':     
-						$.getJSON(ajaxPath, {action: mode + scope, imageid: dragObjectID, albumid: dropObjectID, currentalbumid: currentAlbum}, displayDropStatus);
+						$.getJSON(ajaxPathSet, {action: mode + scope, imageid: dragObjectID, albumid: dropObjectID, currentalbumid: currentAlbum}, displayDropStatus);
 						break;
 					case 'albums2categories': 
-						$.getJSON(ajaxPath, {action: mode + scope, albumid: dragObjectID, categoryid: dropObjectID, currentcategoryid: currentCategory}, displayDropStatus);
+						$.getJSON(ajaxPathSet, {action: mode + scope, albumid: dragObjectID, categoryid: dropObjectID, currentcategoryid: currentCategory}, displayDropStatus);
 						break;
 					case 'icon': 
 						if (t.hasClass('aThumbs')) {
-							$.getJSON(ajaxPath, {
+							$.getJSON(ajaxPathSet, {
 								action: mode + 'album' + scope,
 								imageid: dragObjectID,
 								albumid: dropObjectID
 							}, displayThumbAction);
 						}
 						if (t.hasClass('cThumbs')) {
-							$.getJSON(ajaxPath, {
+							$.getJSON(ajaxPathSet, {
 								action: mode + 'category' + scope,
 								imageid: dragObjectID,
 								categoryid: dropObjectID
@@ -191,21 +191,21 @@ $.fn.removeElement = function(){
 		
 		switch ($(this).attr('id')) {
 			case 'imageThumbsUL':
-				$.getJSON(ajaxPath, {
+				$.getJSON(ajaxPathSet, {
 					action: 'removeimage',
 					id: theElement.attr('myID'),
 					albumid: currentAlbum
 				}, getRemoveStatus);
 				break;
 			case 'albumThumbsUL':
-				$.getJSON(ajaxPath, {
+				$.getJSON(ajaxPathSet, {
 					action: 'removealbum',
 					id: theElement.attr('myID'),
 					categoryid: currentCategory
 				}, getRemoveStatus);
 				break;
 			case 'categoryThumbsUL':
-				$.getJSON(ajaxPath, {
+				$.getJSON(ajaxPathSet, {
 					action: 'removecategory',
 					id: theElement.attr('myID')
 				}, getRemoveStatus);
