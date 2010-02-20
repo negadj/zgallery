@@ -8,10 +8,10 @@ ErrorDocument 404 /
     deny from all
 </Files>
 
-<Files upload.html php/set.php>
+<Files ~ "(upload\.html|set\.php)">
     AuthName "Access restricted"
     AuthType Basic
-    AuthUserFile .htpasswd
+    AuthUserFile /home/zff/www/site1/public_html/.htpasswd
     require valid-user
 </Files>
 
