@@ -1,6 +1,8 @@
 /**
  * @author dsoldatov
  */
+var ajaxPathGet = 'php/get.php';
+
 var dProgress, progress;
 var currentObject, currentImage = null, //TODO
  currentAlbum = null, currentCategory = null;
@@ -68,7 +70,7 @@ $(document).ready(function(){
                     }
                     
                     if (bValid) {
-                        $.getJSON(ajaxPath, {
+                        $.getJSON(ajaxPathSet, {
                             action: myAction,
                             id: myId,
                             name: $('#title').val(),
@@ -92,7 +94,7 @@ $(document).ready(function(){
                     }
                     
                     if (bValid) {
-                        $.getJSON(ajaxPath, {
+                        $.getJSON(ajaxPathSet, {
                             action: myAction,
                             name: $('#title').val(),
                             description: $('#description').val()
@@ -236,7 +238,7 @@ function addNewElement(jsonData){
         }
     }
     
-    $.getJSON(ajaxPath, {
+    $.getJSON(ajaxPathGet, {
         object: 'categories'
     }, listCategories);
 }
@@ -255,7 +257,7 @@ function runMode(){
             $('#modeNew').hide();
             if (!currentCategory) {
                 lockDisplay();
-                $.getJSON(ajaxPath, {
+                $.getJSON(ajaxPathGet, {
                     object: 'categories'
                 }, listCategories);
             }
@@ -269,32 +271,32 @@ function runMode(){
             $('#modeNew').show(); //'pulsate', { times:2 }, 1000);
             if (!currentCategory) {
                 lockDisplay();
-                $.getJSON(ajaxPath, {
+                $.getJSON(ajaxPathGet, {
                     object: 'categories'
                 }, listCategories);
             }
             break;
         case 'new':
-            $.getJSON(ajaxPath, {
+            $.getJSON(ajaxPathGet, {
                 object: 'newimages'
             }, listNewImages);
             break;
     }
     
     if (mode != 'new') {
-        $.getJSON(ajaxPath, {
+        $.getJSON(ajaxPathGet, {
             object: 'categories'
         }, listCategories);
         if (currentAlbum) {
             lockDisplay();
-            $.getJSON(ajaxPath, {
+            $.getJSON(ajaxPathGet, {
                 object: 'images',
                 album_id: currentAlbum
             }, listImages);
         }
         if (currentCategory) {
             lockDisplay();
-            $.getJSON(ajaxPath, {
+            $.getJSON(ajaxPathGet, {
                 object: 'albums',
                 category_id: currentCategory
             }, listAlbums);
@@ -383,7 +385,7 @@ function list(jsonData, object){
                 $('#alb' + i).attr('myID', jsonData.objectlist.album_list[i].album_id).data('json', jsonData.objectlist.album_list[i]);
                 if (jsonData.objectlist.album_list[i].album_id == currentAlbum) {
                     $('#alb' + i).parent().addClass('active');
-                //$.getJSON(ajaxPath, {object: 'images',album_id: currentAlbum}, listImages);
+                //$.getJSON(ajaxPathGet, {object: 'images',album_id: currentAlbum}, listImages);
                 }
                 break;
             case 'categories':
@@ -391,7 +393,7 @@ function list(jsonData, object){
                 $('#cat' + i).attr('myID', jsonData.objectlist.category_list[i].category_id).data('json', jsonData.objectlist.category_list[i]);
                 if (jsonData.objectlist.category_list[i].category_id == currentCategory) {
                     $('#cat' + i).parent().addClass('active');
-                //$.getJSON(ajaxPath, {object: 'albums', category_id: currentCategory}, listAlbums);
+                //$.getJSON(ajaxPathGet, {object: 'albums', category_id: currentCategory}, listAlbums);
                 }
                 break;
         }
@@ -417,7 +419,7 @@ function list(jsonData, object){
             
             // Для каждого файла запускаем процедуру импорта в галерею
             for (var i = 0; i < nObjects; i++) {
-                $.getJSON(ajaxPath, {
+                $.getJSON(ajaxPathGet, {
                     filename: jsonData.objectlist[i].filename,
                     number: i
                 }, getUploadStatus);
@@ -461,7 +463,7 @@ function list(jsonData, object){
                 lockDisplay();
                 $('.aThumbs').parent().removeClass('active');
                 $(this).parent().addClass('active');
-                $.getJSON(ajaxPath, {
+                $.getJSON(ajaxPathGet, {
                     object: 'images',
                     album_id: $(this).attr('myID')
                 }, listImages);
@@ -500,7 +502,7 @@ function list(jsonData, object){
                 lockDisplay();
                 $('.cThumbs').parent().removeClass('active');
                 $(this).parent().addClass('active');
-                $.getJSON(ajaxPath, {
+                $.getJSON(ajaxPathGet, {
                     object: 'albums',
                     category_id: $(this).attr('myID')
                 }, listAlbums);
