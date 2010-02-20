@@ -2,6 +2,8 @@ AddDefaultCharset utf-8
 
 php_value memory_limit 50M
 
+ErrorDocument 404 /
+
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType application/javascript "access plus 1 month"
@@ -21,14 +23,14 @@ php_value memory_limit 50M
   </FilesMatch>
 </IfModule>
 
-<IfModule mod_deflate.c>
-  AddOutputFilterByType DEFLATE text/html
-  AddOutputFilterByType DEFLATE application/javascript
-  AddOutputFilterByType DEFLATE text/javascript
-  AddOutputFilterByType DEFLATE text/css
-  <IfModule mod_setenvif.c>
-    BrowserMatch ^Mozilla/4 gzip-only-text/html
-    BrowserMatch ^Mozilla/4\.0[678] no-gzip
-    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
-  </IfModule>
-</IfModule>
+#<IfModule mod_deflate.c>
+#  AddOutputFilterByType DEFLATE text/html
+#  AddOutputFilterByType DEFLATE application/javascript
+#  AddOutputFilterByType DEFLATE text/javascript
+#  AddOutputFilterByType DEFLATE text/css
+#  <IfModule mod_setenvif.c>
+#    BrowserMatch ^Mozilla/4 gzip-only-text/html
+#    BrowserMatch ^Mozilla/4\.0[678] no-gzip
+#    BrowserMatch \bMSIE !no-gzip !gzip-only-text/html
+#  </IfModule>
+#</IfModule>
