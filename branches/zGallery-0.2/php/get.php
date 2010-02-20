@@ -4,14 +4,6 @@
 
 	include('class.image.php');
 	
-	function returnError($errorMessage) {
-		echo '{"result": {"error":"' . $errorMessage . '"}}';
-	}
-	
-	function returnSQLError($query, $sqlerror) {
-		echo '{"result": {"error":"Cannot execute query ' . $query . '. MySQL error: ' . $sqlerror . '."}}';
-	}
-	
 	//header('Cache-Control: no-cache, must-revalidate');
 	//header('Expires: Mon, 26 Jul 1997 05:00:00 GMT');
 	//header('Content-type: application/json');
